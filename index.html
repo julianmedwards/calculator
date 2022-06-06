@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <div id="calculator">
+        <form>
+          <div id="display">
+            <output id="displayOut" name="display">0</output>
+          </div>
+          <div class="buttons">
+            <button type="button" data-type="digit" name="seven">7</button>
+            <button type="button" data-type="digit" name="eight">8</button>
+            <button type="button" data-type="digit" name="nine">9</button>
+            <button type="button" data-type="digit" name="four">4</button>
+            <button type="button" data-type="digit" name="five">5</button>
+            <button type="button" data-type="digit" name="six">6</button>
+            <button type="button" data-type="digit" name="one">1</button>
+            <button type="button" data-type="digit" name="two">2</button>
+            <button type="button" data-type="digit" name="three">3</button>
+            <button type="button" data-type="digit" id="zero" name="zero">
+              0
+            </button>
+            <button type="button" data-type="digit" name="decimel">.</button>
+            <div class="column">
+              <button type="button" data-type="operator" name="add">+</button>
+              <button type="button" data-type="operator" name="subtract">
+                -
+              </button>
+              <button type="button" data-type="operator" name="multiply">
+                *
+              </button>
+              <button type="button" data-type="operator" name="divide">
+                /
+              </button>
+            </div>
+            <button type="button" data-type="clear" name="clear">C</button>
+            <button type="button" data-type="submit" id="enter" name="enter">
+              ENTER
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script src="scripts.js"></script>
+  </body>
+</html>
