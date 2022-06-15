@@ -96,8 +96,8 @@ calculator.calculate = function calculate() {
             } else {
                 alert('Cannot divide by 0!')
                 return {
-                    val: NaN,
-                    updateType: 'pass',
+                    val: '0',
+                    updateType: 'replaceAll',
                     num: true,
                     decimel: false,
                 }
