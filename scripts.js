@@ -43,7 +43,7 @@ calculator.addDigit = function addDigit(button) {
 
 calculator.placeDecimel = function placeDecimel() {
     if (calculator.resetState) {
-        return {val: '.', updateType: 'replaceLast', num: true}
+        return {val: '.', updateType: 'replaceLast', num: true, decimel: true}
     } else {
         if (calculator.decimelPlaced) {
             return {
