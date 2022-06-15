@@ -17,15 +17,15 @@ calculator.buttonPress = function buttonPress() {
 
 calculator.identifyButton = function identifyButton(buttonEl) {
     if (buttonEl.getAttribute('data-type') == 'digit') {
-        return calculator.addDigit
+        return this.addDigit
     } else if (buttonEl.getAttribute('data-type') == 'decimel') {
-        return calculator.placeDecimel
+        return this.placeDecimel
     } else if (buttonEl.getAttribute('data-type') == 'operator') {
-        return calculator.addOperator
+        return this.addOperator
     } else if (buttonEl.getAttribute('data-type') == 'clear') {
-        return calculator.clear
+        return this.clear
     } else if (buttonEl.getAttribute('data-type') == 'submit') {
-        return calculator.calculate
+        return this.calculate
     } else {
         console.error('Unrecognized button!')
     }
@@ -130,17 +130,19 @@ calculator.calculate = function calculate() {
 
 calculator.updateDisplay = function updateDisplay(data) {
     if (data.updateType == 'add') {
-        calculator.displayVal[0].textContent += data.val
+        this.displayVal[0].textContent += data.val
     } else if (data.updateType == 'swapOp') {
-        calculator.displayVal[0].textContent =
-            calculator.displayVal[0].textContent.slice(0, -3)
-        calculator.displayVal[0].textContent += data.val
+        this.displayVal[0].textContent = this.displayVal[0].textContent.slice(
+            0,
+            -3
+        )
+        this.displayVal[0].textContent += data.val
     } else if (data.updateType == 'replaceLast') {
-        let vals = calculator.displayVal[0].textContent.split(' ')
+        let vals = this.displayVal[0].textContent.split(' ')
         vals[vals.length - 1] = data.val
-        calculator.displayVal[0].textContent = vals.join(' ')
+        this.displayVal[0].textContent = vals.join(' ')
     } else if (data.updateType == 'replaceAll') {
-        calculator.displayVal[0].textContent = data.val
+        this.displayVal[0].textContent = data.val
     } else if (data.updateType == 'pass') {
     } else {
         console.error('Unknown display update type!')
@@ -149,20 +151,20 @@ calculator.updateDisplay = function updateDisplay(data) {
 
 // data keys: val (str), updateType (str), num (bool), decimel (bool)
 calculator.updateStates = function updateStates(data) {
-    calculator.lastInputNum = data.num
+    this.lastInputNum = data.num
 
-    let vals = calculator.displayVal[0].textContent.split(' ')
+    let vals = this.displayVal[0].textContent.split(' ')
     if (
         vals[vals.length - 1].charAt(0) == '0' ||
         data.updateType == 'replaceAll'
     ) {
-        calculator.resetState = true
+        this.resetState = true
     } else {
-        calculator.resetState = false
+        this.resetState = false
     }
 
     if (data.decimel != undefined) {
-        calculator.decimelPlaced = data.decimel
+        this.decimelPlaced = data.decimel
     }
 }
 
