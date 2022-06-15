@@ -9,32 +9,37 @@ body {
 }
 
 form {
-    background-color: #272735;
+    background-color: #444545;
     overflow: hidden;
+    border-radius: 5px;
 }
 
 #display {
+    overflow-x: auto;
     font-family: 'Press Start 2P', monospace;
     color: #bdd8da;
-    font-size: 14px;
+    font-size: 20px;
+    word-spacing: -10px;
     background-color: #53666d;
-    width: 298px;
+    width: 80%;
     padding: calc(75px / 2 - 7.5px) 1rem;
     margin: 10px auto;
     margin-top: 25px;
     text-align: end;
+    box-shadow: inset 2px 2px 2px #3b3b3b, inset -1px -1px 2px #3b3b3b;
 }
 
 .buttons {
-    background-color: #d1d8c0;
+    background-color: #dae0cc;
     display: grid;
     grid-template-rows: auto auto auto auto;
     grid-template-columns: repeat(4, 75px);
     justify-content: center;
     justify-items: center;
     gap: 10px;
-    padding: 20px;
+    padding: 10px;
     margin: 10px;
+    box-shadow: inset 2px 2px 1px #3b3b3b, inset -1px -1px 2px #3b3b3b;
 }
 
 .column {
@@ -50,8 +55,33 @@ form {
 .buttons button {
     display: block;
     font-family: 'Righteous', monospace;
-    height: 75px;
-    width: 75px;
+    font-size: 18px;
+    color: #000000;
+    height: 70px;
+    width: 70px;
+    background-color: #e6e7e3;
+    border-radius: 10px;
+    border: none;
+    border-right: 1px solid #6e6e6e;
+    border-bottom: 2px solid #6e6e6e;
+}
+
+.buttons button:hover {
+    background-color: #b7bbac;
+}
+
+button.op {
+    color: #e6e7e3;
+    background-color: #414c52;
+    border-color: #22282b;
+}
+button.op:hover {
+    background-color: #263036;
+    border-color: #000000;
+}
+
+.buttons button:active {
+    border: none;
 }
 
 #zero {
@@ -64,4 +94,25 @@ form {
     width: 100%;
     height: 100%;
     grid-column: 2 / 5;
+}
+
+@media screen and (max-width: 370px) {
+    .buttons {
+        gap: 0px;
+    }
+    .buttons button {
+        width: 50px;
+        height: 50px;
+    }
+    #zero {
+        height: 50px;
+        width: 130px;
+    }
+    #enter {
+        height: 50px;
+        width: 200px;
+    }
+    .column {
+        padding-bottom: 10px;
+    }
 }
