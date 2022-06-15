@@ -90,7 +90,18 @@ calculator.calculate = function calculate() {
         if (operator == '*') {
             equation.splice(opIndex - 1, 3, Number(leftNum) * Number(rightNum))
         } else if (operator == '/') {
-            equation.splice(opIndex - 1, 3, Number(leftNum) / Number(rightNum))
+            result = Number(leftNum) / Number(rightNum)
+            if (isFinite(result)) {
+                equation.splice(opIndex - 1, 3, result)
+            } else {
+                alert('Cannot divide by 0!')
+                return {
+                    val: NaN,
+                    updateType: 'pass',
+                    num: true,
+                    decimel: false,
+                }
+            }
         } else {
             opIndex += 2
         }
@@ -140,7 +151,11 @@ calculator.updateDisplay = function updateDisplay(data) {
 calculator.updateStates = function updateStates(data) {
     calculator.lastInputNum = data.num
 
-    if (data.val == '0' || data.updateType == 'replaceAll') {
+    let vals = calculator.displayVal[0].textContent.split(' ')
+    if (
+        vals[vals.length - 1].charAt(0) == '0' ||
+        data.updateType == 'replaceAll'
+    ) {
         calculator.resetState = true
     } else {
         calculator.resetState = false

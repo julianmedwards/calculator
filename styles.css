@@ -1,29 +1,39 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-family: 'Righteous', Tahoma, Verdana, sans-serif;
     margin: 0;
 }
 
 #calculator {
-    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+form {
+    background-color: #272735;
+    overflow: hidden;
 }
 
 #display {
-    font-family: monospace;
-    background-color: rgb(255, 245, 231);
+    font-family: 'Press Start 2P', monospace;
+    color: #bdd8da;
+    font-size: 14px;
+    background-color: #53666d;
     width: 298px;
     padding: calc(75px / 2 - 7.5px) 1rem;
-    margin: auto;
+    margin: 10px auto;
     margin-top: 25px;
     text-align: end;
 }
 
 .buttons {
+    background-color: #d1d8c0;
     display: grid;
     grid-template-rows: auto auto auto auto;
     grid-template-columns: repeat(4, 75px);
     justify-content: center;
     justify-items: center;
     gap: 10px;
+    padding: 20px;
     margin: 10px;
 }
 
@@ -39,7 +49,7 @@ body {
 
 .buttons button {
     display: block;
-    font-family: monospace;
+    font-family: 'Righteous', monospace;
     height: 75px;
     width: 75px;
 }
